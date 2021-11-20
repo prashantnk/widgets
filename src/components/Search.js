@@ -1,14 +1,25 @@
 import React, { useEffect } from "react";
 import axios from 'axios';
 const useState = React.useState;
+
 const Search = () => {
 
-    const [term, setTerm] = useState(" ");
-    const [debounce, setDebounce] = useState(" ");
+    const [term, setTerm] = useState("programming");
+    const [debounce, setDebounce] = useState(term);
     const [results, setResults] = useState([]);
 
     useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setDebounce(term);
+        }, 500);
 
+        return (() => {
+            clearTimeout(timeoutId);
+        });
+
+    }, [term]);
+
+    useEffect(() => {
         const search = async () => {
             const result = await axios.get("https://en.wikipedia.org/w/api.php", {
                 params: {
@@ -16,7 +27,7 @@ const Search = () => {
                     list: "search",
                     origin: '*',
                     format: "json",
-                    srsearch: term
+                    srsearch: debounce
                 }
             });
             setResults(result.data.query.search.map((result) => {
@@ -36,15 +47,14 @@ const Search = () => {
             }));
         }
 
-        const timeoutId = setTimeout(() => {
+        if (debounce.length) {
             search();
-        }, 500);
+        }
+        else {
+            setResults([]);
+        }
 
-        return (() => {
-            clearTimeout(timeoutId);
-        });
-
-    }, [term]);
+    }, [debounce]);
 
 
     return (
