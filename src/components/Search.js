@@ -4,6 +4,7 @@ const useState = React.useState;
 const Search = () => {
 
     const [term, setTerm] = useState(" ");
+    const [debounce, setDebounce] = useState(" ");
     const [results, setResults] = useState([]);
 
     useEffect(() => {
