@@ -55,8 +55,6 @@ const Search = () => {
         }
 
     }, [debounce]);
-
-
     return (
         <div>
             <div className="ui form">
