@@ -7,6 +7,7 @@ const Search = () => {
     const [term, setTerm] = useState("programming");
     const [debounce, setDebounce] = useState(term);
     const [results, setResults] = useState([]);
+    // add debounce
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
