@@ -3,7 +3,7 @@ import axios from 'axios';
 const useState = React.useState;
 const Search = () => {
 
-    const [term, setTerm] = useState(" ");
+    const [term, setTerm] = useState("programming");
     const [results, setResults] = useState([]);
 
     useEffect(() => {
@@ -34,14 +34,23 @@ const Search = () => {
                 );
             }));
         }
+        if (term.length) {
+            if (!results.length) {
+                search();
+            }
+            else {
+                const timeoutId = setTimeout(() => {
+                    search();
+                }, 500);
 
-        const timeoutId = setTimeout(() => {
-            search();
-        }, 500);
-
-        return (() => {
-            clearTimeout(timeoutId);
-        });
+                return (() => {
+                    clearTimeout(timeoutId);
+                });
+            }
+        }
+        else {
+            setResults([]);
+        }
 
     }, [term]);
 
