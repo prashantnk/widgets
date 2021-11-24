@@ -36,9 +36,13 @@ const options = [
 
 const App = () => {
     const [select, setSelect] = useState(options[0]);
+    const [openDropdown, setOpenDropdown] = useState(1);
     return (
         <div style={{ margin: "20px" }}>
-            <DropDown options={options} select={select} setSelect={setSelect} />
+            <button onClick={() => setOpenDropdown(!openDropdown)}>Toggle Dropdown</button>
+            {
+                openDropdown ? <DropDown options={options} select={select} setSelect={setSelect} /> : null
+            }
             <Accordion items={items} />
             <ButtonClickCounter />
             <Search />
