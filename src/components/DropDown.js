@@ -31,7 +31,7 @@ const DropDown = (props) => {
     return (
         <div className="ui form " ref={dropdownRef}>
             <div className="field">
-                <label className="label">Select color : </label>
+                <label className="label">{props.label} </label>
                 <div className={`ui selection dropdown ${open ? "active visible" : ''}`}
                     onClick={() => { setOpen(!open); }}
                 >
@@ -45,5 +45,9 @@ const DropDown = (props) => {
         </div>
     );
 }
+
+DropDown.defaultProps = {
+    label: "Select Below : "
+};
 
 export default DropDown;
