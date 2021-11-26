@@ -28,7 +28,7 @@ const Translate = () => {
                 </div>
             </div>
             <DropDown options={options} select={language} setSelect={setLanguage} label="Select Language :" />
-            <h1 className="ui header">Translation : </h1>
+            <h2 className="ui header">Translation : </h2>
             <Convert language={language} text={text} />
         </div>
     );
