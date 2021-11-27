@@ -5,9 +5,9 @@ const Header = () => {
     return (
         <div className="ui four item menu">
             <Link className="item" href="/">Accordian</Link>
-            <Link className="item" href="/translate">translate</Link>
-            <Link className="item" href="/clickCounter">clickCounter</Link>
-            <Link className="item" href="/search">search</Link>
+            <Link className="item" href="/translate">Translate</Link>
+            <Link className="item" href="/clickCounter">Click Counter</Link>
+            <Link className="item" href="/search">Search</Link>
         </div>
     );
 }
