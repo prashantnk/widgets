@@ -1,12 +1,13 @@
 import React from "react";
+import Link from "./Link";
 
 const Header = () => {
     return (
-        <div class="ui four item menu">
-            <a className="item" href="/">Accordian</a>
-            <a className="item" href="/translate">translate</a>
-            <a className="item" href="/clickCounter">clickCounter</a>
-            <a className="item" href="/search">search</a>
+        <div className="ui four item menu">
+            <Link className="item" href="/">Accordian</Link>
+            <Link className="item" href="/translate">translate</Link>
+            <Link className="item" href="/clickCounter">clickCounter</Link>
+            <Link className="item" href="/search">search</Link>
         </div>
     );
 }
