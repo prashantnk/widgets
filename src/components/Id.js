@@ -7,7 +7,7 @@
 const useId = () => {
     let id = 0;
     const getId = () => {
-        console.log(id);
+        // console.log(id);
         return id++;
     }
     return getId;
