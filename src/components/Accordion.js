@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import Id from './Id';
+import getId from './Id';
 const Accordion = ({ items }) => {
-
+    const Id = getId();
     const [activeState, setActiveState] = useState(null);
 
     const onTitleClick = function (index) {

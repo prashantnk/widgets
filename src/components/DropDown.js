@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Id from './Id';
+import getId from './Id';
 
 const DropDown = (props) => {
+    const Id = getId();
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef();
     const options = props.options.map((option) => {
